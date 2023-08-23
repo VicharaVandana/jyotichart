@@ -36,10 +36,15 @@ def get_housenumofsign(sign,ascendantsign):
     housenum = housediff(ascendant_signnum,focus_signnum)
     return(housenum)
 
+def get_signofsign(housenum, ascendantsign):
+  ascendant_signnum = signnum(ascendantsign)
+  focus_signnum = compute_nthsignnum(ascendant_signnum,housenum)
+  return(signs[focus_signnum-1])
+
 
 
 if __name__ == '__main__':
-    pos = get_housenumofsign("Taurus", "Scorpio")
+    pos = get_signofsign(13, "Scorpio")
     print(pos)
 
 
