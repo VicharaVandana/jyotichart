@@ -1,0 +1,205 @@
+import southindianchart as sc
+import northindianchart as nc
+import support.general as gen
+import os
+
+####################################################################
+################### Constants ######################################
+####################################################################
+SUN = "Sun"
+MOON = "Moon"
+MARS = "Mars"
+MERCURY = "Mercury"
+JUPITER = "Jupiter"
+VENUS = "Venus"
+SATURN = "Saturn"
+RAHU = "Rahu"
+KETU = "Ketu"
+
+planet_aspects = {
+    "Sun":[7],
+    "Moon":[7],
+    "Mars":[4,7,8],
+    "Mercury":[7],
+    "Jupiter":[5,7,9],
+    "Venus":[7],
+    "Saturn":[3,7,10],
+    "Rahu":[5,7,9],
+    "Ketu":[5,7,9]
+}
+
+
+
+class NorthChart:
+    def __init__(self, chartname, personname):
+        self.chartname = chartname
+        self.personname = personname
+        self.chartcfg = nc.reset_chartcfg()
+        self.ascendantsign = "NotSet"
+        return
+    
+    def __str__(self):
+        return f"{self.chartname} chart object of {self.personname}."
+    
+    def set_ascendantsign(self,sign):
+        if sign not in gen.signs:
+            return(f'''Input Error: The given input sign {sign} is not a valid astrological sign.''')
+        self.ascendantsign = sign
+        ascendantsignnum = gen.signnum(sign)
+        self.housesigns = []
+        for hno in range(1,13):
+            self.housesigns.append(gen.compute_nthsignnum(ascendantsignnum,hno)) 
+        return("Success")
+     
+    planets = {
+        SUN:{"symbol":"", "aspect_symbol":"☉", "retro":False, "house_num":0, "colour":"black", "pos": {"x":0, "y":0},"aspectpos":[],"isUpdated":False},
+        MOON:{"symbol":"", "aspect_symbol":"☾", "retro":False, "house_num":0, "colour":"black", "pos": {"x":0, "y":0},"aspectpos":[],"isUpdated":False},
+        MARS:{"symbol":"", "aspect_symbol":"♂", "retro":False, "house_num":0, "colour":"black", "pos": {"x":0, "y":0},"aspectpos":[],"isUpdated":False},
+        MERCURY:{"symbol":"", "aspect_symbol":"☿", "retro":False, "house_num":0, "colour":"black", "pos": {"x":0, "y":0},"aspectpos":[],"isUpdated":False},
+        JUPITER:{"symbol":"", "aspect_symbol":"♃", "retro":False, "house_num":0, "colour":"black", "pos": {"x":0, "y":0},"aspectpos":[],"isUpdated":False},
+        VENUS:{"symbol":"", "aspect_symbol":"♀", "retro":False, "house_num":0, "colour":"black", "pos": {"x":0, "y":0},"aspectpos":[],"isUpdated":False},
+        SATURN:{"symbol":"", "aspect_symbol":"♄", "retro":False, "house_num":0, "colour":"black", "pos": {"x":0, "y":0},"aspectpos":[],"isUpdated":False},
+        RAHU:{"symbol":"", "aspect_symbol":"☊", "retro":True, "house_num":0, "colour":"black", "pos": {"x":0, "y":0},"aspectpos":[],"isUpdated":False},
+        KETU:{"symbol":"", "aspect_symbol":"☋", "retro":True, "house_num":0, "colour":"black", "pos": {"x":0, "y":0},"aspectpos":[],"isUpdated":False}
+    }
+    
+    
+    planetindex = [1,1,1,1,1,1,1,1,1,1,1,1]
+    def add_planet(self,planet,symbol,housenum,retrograde = False,aspectsymbol="Default",colour='white'):
+        #Validating input parameters
+        if planet not in self.planets:
+            return(f'''Input Error: The given planet {planet} is invalid.''')
+        if (isinstance(symbol, str) == False):
+            return(f'''Input Error: The given symbol {symbol} is not a string.''')
+        if (isinstance(aspectsymbol, str) == False):
+            return(f'''Input Error: The given aspectsymbol {aspectsymbol} is not a string.''')
+        if (housenum not in range(1,13)):
+            return(f'''Input Error: The given housenum {housenum} is not valid. it must be a integer value from 1 to 12.''')
+        if(self.planets[planet]["isUpdated"] == True):
+            return(f'''The planet {planet} is already added. you can delete planet and then add again.''')
+
+        if((planet == RAHU) or (planet == KETU)):
+            retrograde = True
+        elif((planet == SUN) or (planet == MOON)):
+            retrograde = False
+        else:
+            pass
+
+        #initially make updation status as false. then update and then make it true.
+        self.planets[planet]["isUpdated"] = False
+        self.planets[planet]["symbol"] = symbol
+        self.planets[planet]["house_num"] = housenum
+        self.planets[planet]["colour"] = colour
+        self.planets[planet]["retro"] = retrograde
+        pos = nc.get_coordniates(housenum,self.planetindex[housenum-1])
+        if(pos == (0,0)):
+            return(f'''Overflow Error: The given planet overflows the house. no position available in house diagram for planet {planet}.''')
+        self.planetindex[housenum-1] = self.planetindex[housenum-1] + 1
+        self.planets[planet]["pos"]["x"] = pos[0]
+        self.planets[planet]["pos"]["y"] = pos[1]
+        if(aspectsymbol != "Default"):
+            self.planets[planet]["aspect_symbol"] = aspectsymbol
+        #Adding aspects of the planet
+        for aspect in planet_aspects[planet]:
+            aspecthousenum = gen.compute_nthsignnum(housenum,aspect)
+            asp_pos = nc.get_coordniates(aspecthousenum,self.planetindex[aspecthousenum-1])
+            if(asp_pos == (0,0)):
+                return(f'''Overflow Error: The given planet aspect {planet} - {aspect} overflows the house. no position available in house diagram for planet.''')
+            self.planetindex[aspecthousenum-1] = self.planetindex[aspecthousenum-1] + 1
+            aspectpos = {"x":0, "y":0}
+            aspectpos["x"] = asp_pos[0]
+            aspectpos["y"] = asp_pos[1]
+            self.planets[planet]["aspectpos"].append(aspectpos)
+            
+        self.planets[planet]["isUpdated"] = True
+
+        return("Success")
+
+    def delete_planet(self,planet):
+        #Validating input parameters
+        if planet not in self.planets:
+            return(f'''Input Error: The given planet {planet} is invalid.''')
+        if(self.planets[planet]["isUpdated"] == False):
+            return(f'''The planet {planet} is not added to be deleted.''')
+        housenum = self.planets[planet]["house_num"]
+        self.planetindex[housenum-1] = self.planetindex[housenum-1] - 1
+
+        #removing aspects of the planet
+        for aspect in planet_aspects[planet]:
+            aspecthousenum = gen.compute_nthsignnum(housenum,aspect)
+            self.planetindex[aspecthousenum-1] = self.planetindex[aspecthousenum-1] - 1
+        self.planets[planet]["aspectpos"] = []
+
+        #Update the aspect symbol back to default
+        if (planet == SUN):
+            self.planets[SUN]["aspect_symbol"] = "☉"
+        elif (planet == MOON):
+            self.planets[MOON]["aspect_symbol"] = "☾"
+        elif (planet == MARS):
+            self.planets[MARS]["aspect_symbol"] = "♂"
+        elif (planet == MERCURY):
+            self.planets[MERCURY]["aspect_symbol"] = "☿"
+        elif (planet == JUPITER):
+            self.planets[JUPITER]["aspect_symbol"] = "♃"
+        elif (planet == VENUS):
+            self.planets[VENUS]["aspect_symbol"] = "♀"
+        elif (planet == SATURN):
+            self.planets[SATURN]["aspect_symbol"] = "♄"
+        elif (planet == RAHU):
+            self.planets[RAHU]["aspect_symbol"] = "☊"
+        elif (planet == KETU):
+            self.planets[KETU]["aspect_symbol"] = "☋"
+        else:
+            pass
+
+        self.planets[planet]["isUpdated"] = False
+        return("Success")
+    
+    def __isObjectDrawReady(self):
+        #check if ascendant sign updated
+        if (self.ascendantsign == "NotSet"):
+            print("Error : Chart is not ready to be drawn as ascendant sign is not set yet")
+            return False
+        for planet in self.planets:
+            if(self.planets[planet]["isUpdated"] == False):
+                print(f"Error : Chart is not ready to be drawn as planet {planet} is not added yet")
+                return False
+        return True
+    
+    def draw(self,location,filename,format):
+        #Validating input parameters
+        if(os.path.isdir(location) == False):
+            return(f'''Input Error: The given location {location} is not valid location on this machine.''')
+        if (isinstance(filename, str) == False):
+            return(f'''Input Error: The given filename {filename} is not a string.''')
+        if (format not in ["svg", "jpg", "png"]):
+            return(f'''Input Error: The given format {format} is not supported. please choose from{["svg", "jpg", "png"]}.''')
+        #check if the chart is ready to be drawn
+        if(self.__isObjectDrawReady() == False):
+            return(f'''The chart is not ready to be drawn yet as all the needed inputs are not provided!!!''')
+
+        svgstatus = nc.create_chartSVG(self,location,filename)
+
+        return(svgstatus)
+
+
+
+
+
+
+if __name__ == '__main__':
+    mychart = NorthChart("Lagna", "Shyam Bhat")
+    mychart.set_ascendantsign("Capricorn")
+    print(mychart.housesigns)
+    mychart.add_planet(SUN,"Su", 9)
+    mychart.add_planet(MOON,"Mo", 9)
+    mychart.add_planet(MARS,"Ma", 10)
+    mychart.add_planet(MERCURY,"Me", 9)
+    mychart.add_planet(JUPITER,"Ju", 8)
+    mychart.add_planet(VENUS,"Ve", 8)
+    mychart.add_planet(SATURN,"Sa", 1,colour="lime")
+    mychart.add_planet(RAHU,"Ra", 12)
+    mychart.add_planet(KETU,"Ke", 6)
+    
+    print(mychart.draw("J:\Serials\\New folder", "LagnaChart", "svg"))
+    print(mychart)
