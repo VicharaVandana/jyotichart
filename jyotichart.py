@@ -31,11 +31,12 @@ planet_aspects = {
 
 ################################### NORTH CHART ###################################
 class NorthChart:
-    def __init__(self, chartname, personname):
+    def __init__(self, chartname, personname, IsFullChart = True):
         self.chartname = chartname
         self.personname = personname
         self.chartcfg = nc.reset_chartcfg()
         self.ascendantsign = "NotSet"
+        self.fullchart = IsFullChart
         return
     
     def __str__(self):
@@ -61,9 +62,6 @@ class NorthChart:
         self.chartcfg['house-colour']['laabbhav'] = clr_houses[10]
         self.chartcfg['house-colour']['karchbhav'] = clr_houses[11]
         return
-        
-
-
 
     def set_ascendantsign(self,sign):
         if sign not in gen.signs:
@@ -184,10 +182,11 @@ class NorthChart:
         if (self.ascendantsign == "NotSet"):
             print("Error : Chart is not ready to be drawn as ascendant sign is not set yet")
             return False
-        for planet in self.planets:
-            if(self.planets[planet]["isUpdated"] == False):
-                print(f"Error : Chart is not ready to be drawn as planet {planet} is not added yet")
-                return False
+        if (self.fullchart == True):
+            for planet in self.planets:
+                if(self.planets[planet]["isUpdated"] == False):
+                    print(f"Error : Chart is not ready to be drawn as planet {planet} is not added yet")
+                    return False
         return True
     
     def draw(self,location,filename,format):
@@ -208,11 +207,12 @@ class NorthChart:
 
 ################################### SOUTH CHART ###################################
 class SouthChart:
-    def __init__(self, chartname, personname):
+    def __init__(self, chartname, personname, IsFullChart = True):
         self.chartname = chartname
         self.personname = personname
         self.chartcfg = sc.reset_chartcfg()
         self.ascendantsign = "NotSet"
+        self.fullchart = IsFullChart
         return
     
     def __str__(self):
@@ -358,10 +358,11 @@ class SouthChart:
         if (self.ascendantsign == "NotSet"):
             print("Error : Chart is not ready to be drawn as ascendant sign is not set yet")
             return False
-        for planet in self.planets:
-            if(self.planets[planet]["isUpdated"] == False):
-                print(f"Error : Chart is not ready to be drawn as planet {planet} is not added yet")
-                return False
+        if (self.fullchart == True):
+            for planet in self.planets:
+                if(self.planets[planet]["isUpdated"] == False):
+                    print(f"Error : Chart is not ready to be drawn as planet {planet} is not added yet")
+                    return False
         return True
     
     def draw(self,location,filename,format):
