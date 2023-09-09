@@ -41,6 +41,30 @@ class NorthChart:
     def __str__(self):
         return f"{self.chartname} chart object of {self.personname}."
     
+    def updatechartcfg(self, aspect=True, clr_background = 'black', clr_outbox = 'red', clr_line = 'yellow', clr_sign = 'pink', 
+    clr_houses = ['black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', 'black']):
+        self.chartcfg['aspect-visibility'] = aspect
+        self.chartcfg['background-colour'] = clr_background
+        self.chartcfg['outerbox-colour'] = clr_outbox
+        self.chartcfg['line-colour'] = clr_line
+        self.chartcfg['sign-colour'] = clr_sign
+        self.chartcfg['house-colour']['tanbhav'] = clr_houses[0]
+        self.chartcfg['house-colour']['dhanbhav'] = clr_houses[1]
+        self.chartcfg['house-colour']['anujbhav'] = clr_houses[2]
+        self.chartcfg['house-colour']['maatabhav'] = clr_houses[3]
+        self.chartcfg['house-colour']['santanbhav'] = clr_houses[4]
+        self.chartcfg['house-colour']['rogbhav'] = clr_houses[5]
+        self.chartcfg['house-colour']['dampathyabhav'] = clr_houses[6]
+        self.chartcfg['house-colour']['aayubhav'] = clr_houses[7]
+        self.chartcfg['house-colour']['bhagyabhav'] = clr_houses[8]
+        self.chartcfg['house-colour']['karmabhav'] = clr_houses[9]
+        self.chartcfg['house-colour']['laabbhav'] = clr_houses[10]
+        self.chartcfg['house-colour']['karchbhav'] = clr_houses[11]
+        return
+        
+
+
+
     def set_ascendantsign(self,sign):
         if sign not in gen.signs:
             return(f'''Input Error: The given input sign {sign} is not a valid astrological sign.''')
@@ -193,6 +217,28 @@ class SouthChart:
     
     def __str__(self):
         return f"{self.chartname} chart object of {self.personname}."
+
+    def updatechartcfg(self, aspect=True, clr_background = 'black', clr_outbox = 'red', clr_inbox = 'red', clr_line = 'yellow', clr_Asc = 'pink', 
+    clr_houses = ['black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', 'black']):
+        self.chartcfg['aspect-visibility'] = aspect
+        self.chartcfg['background-colour'] = clr_background
+        self.chartcfg['outerbox-colour'] = clr_outbox
+        self.chartcfg['innerbox-colour'] = clr_inbox
+        self.chartcfg['line-colour'] = clr_line
+        self.chartcfg['sign-colour'] = clr_Asc
+        self.chartcfg['house-colour']['aries'] = clr_houses[0]
+        self.chartcfg['house-colour']['taurus'] = clr_houses[1]
+        self.chartcfg['house-colour']['gemini'] = clr_houses[2]
+        self.chartcfg['house-colour']['cancer'] = clr_houses[3]
+        self.chartcfg['house-colour']['leo'] = clr_houses[4]
+        self.chartcfg['house-colour']['virgo'] = clr_houses[5]
+        self.chartcfg['house-colour']['libra'] = clr_houses[6]
+        self.chartcfg['house-colour']['scorpio'] = clr_houses[7]
+        self.chartcfg['house-colour']['sagittarius'] = clr_houses[8]
+        self.chartcfg['house-colour']['capricorn'] = clr_houses[9]
+        self.chartcfg['house-colour']['aquarius'] = clr_houses[10]
+        self.chartcfg['house-colour']['pisces'] = clr_houses[11]
+        return
 
     def set_ascendantsign(self,sign):
         if sign not in gen.signs:
@@ -347,9 +393,10 @@ if __name__ == '__main__':
     mychart.add_planet(MERCURY,"Me", 9)
     mychart.add_planet(JUPITER,"Ju", 8)
     mychart.add_planet(VENUS,"Ve", 8)
-    mychart.add_planet(SATURN,"Sa", 1,colour="lime")
+    mychart.add_planet(SATURN,"Sa", 1,colour="yellow")
     mychart.add_planet(RAHU,"Ra", 12)
     mychart.add_planet(KETU,"Ke", 6)
+    mychart.updatechartcfg(aspect=False, clr_Asc='lime')
     
-    print(mychart.draw("J:\Serials\\New folder", "LagnaChart", "svg"))
+    print(mychart.draw("C:\\Users\hp\Downloads\\astrocharts", "LagnaChart", "svg"))
     print(mychart)
