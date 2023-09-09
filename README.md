@@ -1,7 +1,7 @@
 # Jyotichart is used to plot the astrological charts in north indian and south indian format. 
 
 The Sample charts generated for north indian and south indian style is shown below
-<img title="Sample Charts" alt="Cannot be displayed in your browser" src="chartsample.png">
+<img title="Sample Charts" alt="Cannot be displayed in your browser" src="chartsample.png" width="700">
 
 ## Jyotichart as blackbox
 > This package takes astrological planetery and ascendant positions as input and draws the astrological chart and gives it as output as svg image file saved in given location. 
@@ -46,5 +46,44 @@ The Sample charts generated for north indian and south indian style is shown bel
 
     > Note: This method returns string value `"Success"` if the planet is added successfully to the chart. But if not then it returns the error message as return value if some fault occured. So please make sure you check the return value to confirm the planet is added successfully.
 
+    The planets from Sun to Ketu can be added as shown in below code snippet as an example:
+    ```python
+        mychart.add_planet(chart.SUN,"Su", 9)
+        mychart.add_planet(chart.MOON,"Mo", 9)
+        mychart.add_planet(chart.MARS,"Ma", 10, aspectsymbol="m")
+        mychart.add_planet(chart.MERCURY,"Me", 9, colour='yellow')
+        mychart.add_planet(chart.JUPITER,"Ju", 8,colour="lime", retrograde=True)
+        mychart.add_planet(chart.VENUS,"Ve", 8)
+        mychart.add_planet(chart.SATURN,"Sa", 1)
+        mychart.add_planet(chart.RAHU,"Ra", 12)
+        mychart.add_planet(chart.KETU,"Ke", 6)
+    ```
+    This results in chart generated as shown below:
+
+    <img src="addplanetsample.svg" alt="This image cant be displayed here." width="280"/>
+
 5. Now since you provided all the details of ascendant and planets you are ready to draw the chart. But before doing that you even have option to update the chart coinfigurations like changing the chart colours like line colour, background colour etc and enabling or disabling the aspect visibilities etc in the chart before plotting. This can be done by using the method `updatechartcfg()`. This method has all optional parameters with each parameter representing a different chart property. If you invoke this method without any parameters then ot resets all configurations with default values. If you want to update some properties then you can provide thoise corresponding parameters only with your chosen values. The parameters of this method are given below:
-    - **aspect** : Default value is `True`. It's a boolean value indicating if the planet aspects should be visible on the chart or not. 
+    - **aspect** : Default value is `True`. It's a boolean value indicating if the planet aspects should be visible on the chart or not. To disable the aspects only you can do this : `mychart.updatechartcfg(aspect=False)`
+    - **clr_background** : Default value is `'black'`. It's a string value indicating the colour of the background of the chart. 
+    - **clr_outbox** : Default value is `'red'`. It's a string value indicating the colour of the outer square box of the chart. 
+    - **clr_line** : Default value is `'yellow'`. It's a string value indicating the colour of the lines of the chart.
+    - **clr_sign** : Default value is `'pink'`. It's a string value indicating the colour of the sign numbers on the chart. 
+    - **clr_houses** : Default value is `'black'` for all 12 houses. It's a list of 12 values with each value being string value indicating the colour of the corresponding house on the chart. 
+
+    Below code snippet demonstrates the usage of method `updatechartcfg()`. Here we will make aspects invisible on the chart. Also the background colour will be made yellow, line colour be made white, sign colour be made lime green. houses 1,5,9 be made green. houses 6,8,12 be made red and remaining houses will be kept black. Remember all config changes has to be made in a single call. if invoked multiple times then oit will be as if only last call was valid and all previopus calls will be nullified.
+
+    ```python
+        housecolours = ['black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', 'black']
+        housecolours[0] = 'green'   #FIRST HOUSE
+        housecolours[4] = 'green'   #FIFTH HOUSE
+        housecolours[8] = 'green'   #NINTH HOUSE
+        housecolours[5] = 'red'   #SIXTH HOUSE
+        housecolours[7] = 'red'   #EIGHTH HOUSE
+        housecolours[11] = 'red'   #TWELFTH HOUSE
+
+        mychart.updatechartcfg(aspect=False, clr_background='yellow', clr_line='white', clr_sign='lime', clr_houses=housecolours)
+    ```
+
+    As a result the chart image would be generated as shown below:
+
+    <img src="updatechartcfgsample.svg" alt="This image cant be displayed here." width="280"/>
