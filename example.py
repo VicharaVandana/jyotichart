@@ -1,7 +1,7 @@
 import jyotichart as chart
 
 
-mychart = chart.NorthChart("Lagna", "Shyam Bhat", IsFullChart = False)
+mychart = chart.SouthChart("Lagna", "Shyam Bhat", IsFullChart = False)
 mychart.set_ascendantsign("Capricorn")
 mychart.add_planet(chart.SUN,"Su", 9)
 mychart.add_planet(chart.MOON,"Mo", 9)
@@ -14,13 +14,13 @@ mychart.add_planet(chart.RAHU,"Ra", 12)
 mychart.add_planet(chart.KETU,"Ke", 6)
 
 housecolours = ['black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', 'black']
-housecolours[0] = 'green'   #FIRST HOUSE
-housecolours[4] = 'green'   #FIFTH HOUSE
-housecolours[8] = 'green'   #NINTH HOUSE
-housecolours[5] = 'red'   #SIXTH HOUSE
-housecolours[7] = 'red'   #EIGHTH HOUSE
-housecolours[11] = 'red'   #TWELFTH HOUSE
+housecolours[0] = 'green'   #Aries
+housecolours[4] = 'green'   #Leo
+housecolours[8] = 'green'   #Sagittarius
+housecolours[5] = 'red'   #Virgo
+housecolours[7] = 'red'   #Scorpio
+housecolours[11] = 'red'   #Pisces
 
-mychart.updatechartcfg(aspect=False, clr_background='yellow', clr_line='white', clr_sign='lime', clr_houses=housecolours)
+mychart.updatechartcfg(aspect=False, clr_background='yellow', clr_line='white', clr_Asc='lime', clr_houses=housecolours)
 
-mychart.draw("C:\\Users\hp\Downloads\\astrocharts", "LagnaChart", "svg")
+mychart.draw("C:/Users/hp/Downloads/astrocharts", "updatechartcfgsamplesouth")

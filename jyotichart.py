@@ -189,14 +189,14 @@ class NorthChart:
                     return False
         return True
     
-    def draw(self,location,filename,format):
+    def draw(self,location,filename,format="svg"):
         #Validating input parameters
         if(os.path.isdir(location) == False):
             return(f'''Input Error: The given location {location} is not valid location on this machine.''')
         if (isinstance(filename, str) == False):
             return(f'''Input Error: The given filename {filename} is not a string.''')
-        if (format not in ["svg", "jpg", "png"]):
-            return(f'''Input Error: The given format {format} is not supported. please choose from{["svg", "jpg", "png"]}.''')
+        if (format not in ["svg"]):
+            return(f'''Input Error: The given format {format} is not supported. please choose from{["svg"]}.''')
         #check if the chart is ready to be drawn
         if(self.__isObjectDrawReady() == False):
             return(f'''The chart is not ready to be drawn yet as all the needed inputs are not provided!!!''')
@@ -365,14 +365,14 @@ class SouthChart:
                     return False
         return True
     
-    def draw(self,location,filename,format):
+    def draw(self,location,filename,format = 'svg'):
         #Validating input parameters
         if(os.path.isdir(location) == False):
             return(f'''Input Error: The given location {location} is not valid location on this machine.''')
         if (isinstance(filename, str) == False):
             return(f'''Input Error: The given filename {filename} is not a string.''')
-        if (format not in ["svg", "jpg", "png"]):
-            return(f'''Input Error: The given format {format} is not supported. please choose from{["svg", "jpg", "png"]}.''')
+        if (format not in ["svg"]):
+            return(f'''Input Error: The given format {format} is not supported. please choose from{["svg"]}.''')
         #check if the chart is ready to be drawn
         if(self.__isObjectDrawReady() == False):
             return(f'''The chart is not ready to be drawn yet as all the needed inputs are not provided!!!''')
