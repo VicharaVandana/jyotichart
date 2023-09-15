@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+src/jyotichart/__init__.py
+src/jyotichart.egg-info/PKG-INFO
+src/jyotichart.egg-info/SOURCES.txt
+src/jyotichart.egg-info/dependency_links.txt
+src/jyotichart.egg-info/top_level.txt
