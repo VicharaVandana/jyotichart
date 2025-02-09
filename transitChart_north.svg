@@ -1,0 +1,292 @@
+<svg id="Lagna_chart_Shyam Bhat" height="610" width="610" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 616 616" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" charset="utf-16">
+  <style>
+    .sign-num { font: bold 22px sans-serif; }
+    .planet { font: bold 20px sans-serif; }
+    .aspect { font: bold 22px sans-serif; }
+  </style>
+  <!-- ********** Chart Diagram ********** -->
+  <rect width="610" height="610" x="5" y="5" style="fill:black;stroke-width:2;stroke:red" />
+  <!-- ********** Inner Natal Chart Section ********** -->
+  <polygon id ="tanbhav" points="310,110 210,210 310,310 410,210" style="fill:black;stroke:yellow;stroke-width:2" />
+  <polygon id ="dhanbhav" points="110,110 310,110 210,210" style="fill:black;stroke:yellow;stroke-width:2" />
+  <polygon id ="anujbhav" points="110,110 110,310 210,210" style="fill:black;stroke:yellow;stroke-width:2" />
+  <polygon id ="maatabhav" points="210,210 110,310 210,410 310,310" style="fill:black;stroke:yellow;stroke-width:2" />
+  <polygon id ="santanbhav" points="110,310 210,410 110,510" style="fill:black;stroke:yellow;stroke-width:2" />
+  <polygon id ="rogbhav" points="310,510 210,410 110,510" style="fill:black;stroke:yellow;stroke-width:2" />
+  <polygon id ="dampathyabhav" points="310,510 210,410 310,310 410,410" style="fill:black;stroke:yellow;stroke-width:2" />
+  <polygon id ="aayubhav" points="310,510 410,410 510,510" style="fill:black;stroke:yellow;stroke-width:2" />
+  <polygon id ="bhagyabhav" points="410,410 510,510 510,310" style="fill:black;stroke:yellow;stroke-width:2" />
+  <polygon id ="karmabhav" points="410,410 510,310 410,210 310,310" style="fill:black;stroke:yellow;stroke-width:2" />
+  <polygon id ="laabbhav" points="510,310 410,210 510,110" style="fill:black;stroke:yellow;stroke-width:2" />
+  <polygon id ="karchbhav" points="410,210 510,110 310,110" style="fill:black;stroke:yellow;stroke-width:2" />
+  
+  <!-- ********** Outer Transit Chart Section ********** -->
+  <line x1="220" y1="5" x2="220" y2="108" style="stroke:yellow;stroke-width:2"/>
+  <line x1="400" y1="5" x2="400" y2="108" style="stroke:yellow;stroke-width:2"/>
+  <line x1="220" y1="510" x2="220" y2="613" style="stroke:yellow;stroke-width:2"/>
+  <line x1="400" y1="510" x2="400" y2="613" style="stroke:yellow;stroke-width:2"/>
+  <line x1="5" y1="230" x2="108" y2="230" style="stroke:yellow;stroke-width:2"/>
+  <line x1="5" y1="390" x2="108" y2="390" style="stroke:yellow;stroke-width:2"/>
+  <line x1="510" y1="230" x2="613" y2="230" style="stroke:yellow;stroke-width:2"/>
+  <line x1="510" y1="390" x2="613" y2="390" style="stroke:yellow;stroke-width:2"/>
+  <line x1="8" y1="8" x2="108" y2="108" style="stroke:yellow;stroke-width:2"/>
+  <line x1="8" y1="613" x2="108" y2="512" style="stroke:yellow;stroke-width:2"/>
+  <line x1="512" y1="512" x2="615" y2="615" style="stroke:yellow;stroke-width:2"/>
+  <line x1="510" y1="108" x2="615" y2="8" style="stroke:yellow;stroke-width:2"/>
+  
+
+  <!-- ********** Sign Numbers ********** -->
+  <text id ="tan" x="293" y="295" fill="pink" class="sign-num">10</text>
+  <text id ="dhan" x="197" y="195" fill="pink" class="sign-num">11</text>
+  <text id ="anuj" x="170" y="218" fill="pink" class="sign-num">12</text>
+  <text id ="maata" x="270" y="318" fill="pink" class="sign-num">01</text>
+  <text id ="santaan" x="175" y="416" fill="pink" class="sign-num">02</text>
+  <text id ="rog" x="197" y="435" fill="pink" class="sign-num">03</text>
+  <text id ="dampathya" x="295" y="340" fill="pink" class="sign-num">04</text>
+  <text id ="aayu" x="396" y="437" fill="pink" class="sign-num">05</text>
+  <text id ="bhagya" x="420" y="418" fill="pink" class="sign-num">06</text>
+  <text id ="karma" x="320" y="318" fill="pink" class="sign-num">07</text>
+  <text id ="laab" x="418" y="218" fill="pink" class="sign-num">08</text>
+  <text id ="karch" x="398" y="198" fill="pink" class="sign-num">09</text>
+
+  <!-- ********** Planets ********** -->
+  <!-- ********** Inner Natal Planets ********** -->
+  <text y="240" x="285" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="200" x="295" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="238" x="325" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="200" x="335" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="160" x="305" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="185" x="265" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="230" x="245" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="222" x="363" fill="white" class="planet" text-decoration="underline">Su</text>
+
+<text x="196" y="156" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="135" x="230" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="132" x="170" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="170" x="223" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="170" x="173" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="133" x="140" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="133" x="260" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="136" x="205" fill="white" class="planet" text-decoration="underline">Su</text>
+
+<text x="140" y="210" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="115" y="245" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="112" y="185" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="145" y="235" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="150" y="190" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="113" y="155" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="113" y="275" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="116" y="220" fill="white" class="planet" text-decoration="underline">Su</text>
+
+<text x="220" y="300" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="180" y="310" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="218" y="340" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="180" y="350" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="140" y="320" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="165" y="280" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="210" y="260" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="202" y="378" fill="white" class="planet" text-decoration="underline">Su</text>
+
+<text x="140" y="410" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="115" y="445" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="112" y="385" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="150" y="438" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="150" y="388" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="113" y="355" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="113" y="475" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="116" y="420" fill="white" class="planet" text-decoration="underline">Su</text>
+
+<text x="197" y="460" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="160" y="475" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="228" y="498" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="200" y="485" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="180" y="503" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="140" y="500" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="262" y="502" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="230" y="470" fill="white" class="planet" text-decoration="underline">Su</text>
+
+<text y="375" x="282" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="425" x="295" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="385" x="325" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="425" x="335" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="465" x="305" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="440" x="265" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="395" x="245" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="405" x="360" fill="white" class="planet" text-decoration="underline">Su</text>
+
+<text x="400" y="460" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="360" y="475" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="428" y="498" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="400" y="485" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="380" y="503" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="340" y="500" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="462" y="502" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="430" y="470" fill="white" class="planet" text-decoration="underline">Su</text>
+
+<text x="460" y="410" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="450" y="440" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="450" y="385" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="480" y="373" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="480" y="435" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="469" y="460" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="483" y="350" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="485" y="482" fill="white" class="planet" text-decoration="underline">Su</text>
+
+<!-- Karma Bhav Planets Positions -->
+<text x="370" y="300" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="420" y="310" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="382" y="340" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="420" y="350" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="460" y="320" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="435" y="280" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="390" y="260" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="398" y="378" fill="white" class="planet" text-decoration="underline">Su</text>
+
+<!-- Laab Bhav Planets Positions -->
+<text x="460" y="210" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="450" y="240" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="450" y="185" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="480" y="173" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="480" y="235" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="469" y="260" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="483" y="150" fill="white" class="planet" text-decoration="underline">Su</text>
+<text x="485" y="282" fill="white" class="planet" text-decoration="underline">Su</text>
+
+<!-- Karch Bhav Planets Positions -->
+<text x="396" y="156" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="135" x="430" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="132" x="370" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="170" x="423" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="170" x="373" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="133" x="340" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="133" x="460" fill="white" class="planet" text-decoration="underline">Su</text>
+<text y="136" x="405" fill="white" class="planet" text-decoration="underline">Su</text>
+
+  <!-- ********** Outer Transit Planets ********** -->
+  <!-- Tan Bhav Transit Planets Positions -->
+  <text x="282" y="50" fill="white" class="planet" text-decoration="underline">Sa</text>
+  <text x="325" y="70" fill="white" class="planet" text-decoration="underline">Sa</text>
+  <text x="230" y="35" fill="white" class="planet" text-decoration="underline">Sa</text>
+  <text x="250" y="80" fill="white" class="planet" text-decoration="underline">Sa</text>
+  <text x="332" y="30" fill="white" class="planet" text-decoration="underline">Sa</text>
+  <text x="300" y="95" fill="white" class="planet" text-decoration="underline">Sa</text>
+  <text x="350" y="100" fill="white" class="planet" text-decoration="underline">Sa</text>
+  <text x="365" y="70" fill="white" class="planet" text-decoration="underline">Sa</text>
+
+<!-- Dhan Bhav Transit Planets Positions -->
+<text x="125" y="45" fill="green" class="planet" text-decoration="underline">Sa</text>
+<text x="160" y="70" fill="white" class="planet" text-decoration="underline">Sa</text>
+<text x="72" y="32" fill="yellow" class="planet" text-decoration="underline">Sa</text>
+<text x="120" y="95" fill="magenta" class="planet" text-decoration="underline">Sa</text>
+<text x="175" y="32" fill="red" class="planet" text-decoration="underline">Sa</text>
+<text x="85" y="65" fill="lime" class="planet" text-decoration="underline">Sa</text>
+<text x="178" y="95" fill="pink" class="planet" text-decoration="underline">Sa</text>
+<text x="32" y="28" fill="orange" class="planet" text-decoration="underline">Sa</text>
+
+<!-- Anuj Bhav Transit Planets Positions -->
+<text x="25" y="145" fill="green" class="planet" text-decoration="underline">Sa</text>
+<text x="50" y="180" fill="white" class="planet" text-decoration="underline">Sa</text>
+<text x="12" y="92" fill="yellow" class="planet" text-decoration="underline">Sa</text>
+<text x="75" y="140" fill="magenta" class="planet" text-decoration="underline">Sa</text>
+<text x="15" y="210" fill="red" class="planet" text-decoration="underline">Sa</text>
+<text x="50" y="105" fill="lime" class="planet" text-decoration="underline">Sa</text>
+<text x="75" y="222" fill="pink" class="planet" text-decoration="underline">Sa</text>
+<text x="8" y="52" fill="orange" class="planet" text-decoration="underline">Sa</text>
+
+<!-- Maata Bhav Transit Planets Positions -->
+<text x="37" y="295" fill="green" class="planet" text-decoration="underline">Sa</text>
+<text x="52" y="330" fill="white" class="planet" text-decoration="underline">Sa</text>
+<text x="30" y="360" fill="yellow" class="planet" text-decoration="underline">Sa</text>
+<text x="15" y="260" fill="blue" class="planet" text-decoration="underline">Sa</text>
+<text x="13" y="320" fill="red" class="planet" text-decoration="underline">Sa</text>
+<text x="75" y="370" fill="lime" class="planet" text-decoration="underline">Sa</text>
+<text x="70" y="260" fill="pink" class="planet" text-decoration="underline">Sa</text>
+<text x="80" y="300" fill="orange" class="planet" text-decoration="underline">Sa</text>
+
+<!-- Santaan Bhav Transit Planets Positions -->
+<text x="25" y="485" fill="green" class="planet" text-decoration="underline">Sa</text>
+<text x="50" y="450" fill="white" class="planet" text-decoration="underline">Sa</text>
+<text x="12" y="538" fill="yellow" class="planet" text-decoration="underline">Sa</text>
+<text x="75" y="490" fill="magenta" class="planet" text-decoration="underline">Sa</text>
+<text x="15" y="420" fill="red" class="planet" text-decoration="underline">Sa</text>
+<text x="50" y="525" fill="lime" class="planet" text-decoration="underline">Sa</text>
+<text x="75" y="412" fill="pink" class="planet" text-decoration="underline">Sa</text>
+<text x="8" y="578" fill="orange" class="planet" text-decoration="underline">Sa</text>
+
+<!-- Rog Bhav Transit Planets Positions -->
+<text x="125" y="585" fill="green" class="planet" text-decoration="underline">Sa</text>
+<text x="160" y="560" fill="white" class="planet" text-decoration="underline">Sa</text>
+<text x="72" y="598" fill="yellow" class="planet" text-decoration="underline">Sa</text>
+<text x="120" y="535" fill="magenta" class="planet" text-decoration="underline">Sa</text>
+<text x="175" y="598" fill="red" class="planet" text-decoration="underline">Sa</text>
+<text x="85" y="565" fill="lime" class="planet" text-decoration="underline">Sa</text>
+<text x="178" y="535" fill="pink" class="planet" text-decoration="underline">Sa</text>
+<text x="32" y="602" fill="orange" class="planet" text-decoration="underline">Sa</text>
+
+<!-- Dhampathya Bhav Transit Planets Positions -->
+<text x="282" y="580" fill="green" class="planet" text-decoration="underline">Sa</text>
+<text x="325" y="560" fill="white" class="planet" text-decoration="underline">Sa</text>
+<text x="230" y="595" fill="blue" class="planet" text-decoration="underline">Sa</text>
+<text x="250" y="550" fill="yellow" class="planet" text-decoration="underline">Sa</text>
+<text x="332" y="600" fill="red" class="planet" text-decoration="underline">Sa</text>
+<text x="300" y="535" fill="cyan" class="planet" text-decoration="underline">Sa</text>
+<text x="350" y="530" fill="magenta" class="planet" text-decoration="underline">Sa</text>
+<text x="365" y="560" fill="orange" class="planet" text-decoration="underline">Sa</text>
+
+<!-- Aayu Bhav Transit Planets Positions (Adjusted +22 to y) -->
+<text x="465" y="587" fill="green" class="planet" text-decoration="underline">Sa</text>
+<text x="440" y="562" fill="white" class="planet" text-decoration="underline">Sa</text>
+<text x="518" y="600" fill="yellow" class="planet" text-decoration="underline">Sa</text>
+<text x="470" y="537" fill="magenta" class="planet" text-decoration="underline">Sa</text>
+<text x="415" y="600" fill="red" class="planet" text-decoration="underline">Sa</text>
+<text x="505" y="567" fill="lime" class="planet" text-decoration="underline">Sa</text>
+<text x="412" y="537" fill="pink" class="planet" text-decoration="underline">Sa</text>
+<text x="558" y="604" fill="orange" class="planet" text-decoration="underline">Sa</text>
+
+<!-- Bhagya Bhav Transit Planets Positions -->
+<text x="568" y="485" fill="green" class="planet" text-decoration="underline">Sa</text>
+<text x="543" y="450" fill="white" class="planet" text-decoration="underline">Sa</text>
+<text x="581" y="538" fill="yellow" class="planet" text-decoration="underline">Sa</text>
+<text x="518" y="490" fill="magenta" class="planet" text-decoration="underline">Sa</text>
+<text x="578" y="425" fill="red" class="planet" text-decoration="underline">Sa</text>
+<text x="543" y="525" fill="lime" class="planet" text-decoration="underline">Sa</text>
+<text x="518" y="414" fill="pink" class="planet" text-decoration="underline">Sa</text>
+<text x="585" y="578" fill="orange" class="planet" text-decoration="underline">Sa</text>
+
+<!-- Karma Bhav Transit Planets Positions -->
+<text x="563" y="295" fill="green" class="planet" text-decoration="underline">Sa</text>
+<text x="548" y="330" fill="white" class="planet" text-decoration="underline">Sa</text>
+<text x="570" y="365" fill="yellow" class="planet" text-decoration="underline">Sa</text>
+<text x="580" y="260" fill="blue" class="planet" text-decoration="underline">Sa</text>
+<text x="583" y="323" fill="red" class="planet" text-decoration="underline">Sa</text>
+<text x="525" y="370" fill="lime" class="planet" text-decoration="underline">Sa</text>
+<text x="530" y="260" fill="pink" class="planet" text-decoration="underline">Sa</text>
+<text x="520" y="300" fill="orange" class="planet" text-decoration="underline">Sa</text>
+
+<!-- Laab Bhav Transit Planets Positions -->
+<text x="568" y="145" fill="green" class="planet" text-decoration="underline">Sa</text>
+<text x="543" y="180" fill="white" class="planet" text-decoration="underline">Sa</text>
+<text x="581" y="92" fill="yellow" class="planet" text-decoration="underline">Sa</text>
+<text x="518" y="140" fill="magenta" class="planet" text-decoration="underline">Sa</text>
+<text x="578" y="210" fill="red" class="planet" text-decoration="underline">Sa</text>
+<text x="543" y="105" fill="lime" class="planet" text-decoration="underline">Sa</text>
+<text x="518" y="222" fill="pink" class="planet" text-decoration="underline">Sa</text>
+<text x="585" y="52" fill="orange" class="planet" text-decoration="underline">Sa</text>
+
+<!-- Karch Bhav Transit Planets Positions -->
+<text x="465" y="45" fill="green" class="planet" text-decoration="underline">Sa</text>
+<text x="440" y="70" fill="white" class="planet" text-decoration="underline">Sa</text>
+<text x="518" y="32" fill="yellow" class="planet" text-decoration="underline">Sa</text>
+<text x="470" y="95" fill="magenta" class="planet" text-decoration="underline">Sa</text>
+<text x="415" y="32" fill="red" class="planet" text-decoration="underline">Sa</text>
+<text x="505" y="65" fill="lime" class="planet" text-decoration="underline">Sa</text>
+<text x="412" y="95" fill="pink" class="planet" text-decoration="underline">Sa</text>
+<text x="558" y="28" fill="orange" class="planet" text-decoration="underline">Sa</text>
+
+
+  <!-- ********** Planets Aspects ********** -->
+
+  
+
+  Sorry, your browser does not support inline SVG.
+</svg>
