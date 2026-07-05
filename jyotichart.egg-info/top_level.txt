@@ -1,0 +1,8 @@
+jyotichart
+northindian_numericalchart
+northindian_transitchart
+northindianchart
+southindian_numericalchart
+southindian_transitchart
+southindianchart
+support

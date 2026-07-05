@@ -308,7 +308,7 @@ def write_natalplanetsOnChart_ntsc(chartSVG, planets):
 
         #Since all needed properties are computed, Now create the svg entry string for planet
         if(retro == True):
-            Planet_SVGstring = f'''  <text y="{py}" x="{px}" fill="{planetcolour}" text-decoration="underline" class="natal-planet" id="natal-{planetname}">({symbol})</text>\n'''
+            Planet_SVGstring = f'''  <text y="{py}" x="{px}" fill="{planetcolour}" text-decoration="underline" class="natal-planet" id="natal-{planetname}">{symbol}</text>\n'''
         else:
             Planet_SVGstring = f'''  <text y="{py}" x="{px}" fill="{planetcolour}" class="natal-planet" id="natal-{planetname}">{symbol}</text>\n'''
         #write the planet to SVG chart
@@ -329,7 +329,7 @@ def write_transitplanetsOnChart_ntsc(chartSVG, planets):
 
         #Since all needed properties are computed, Now create the svg entry string for planet
         if(retro == True):
-            Planet_SVGstring = f'''  <text y="{py}" x="{px}" fill="{planetcolour}" text-decoration="underline" class="transit-planet" id="transit-{planetname}">({symbol})</text>\n'''
+            Planet_SVGstring = f'''  <text y="{py}" x="{px}" fill="{planetcolour}" text-decoration="underline" class="transit-planet" id="transit-{planetname}">{symbol}</text>\n'''
         else:
             Planet_SVGstring = f'''  <text y="{py}" x="{px}" fill="{planetcolour}" class="transit-planet" id="transit-{planetname}">{symbol}</text>\n'''
         #write the planet to SVG chart

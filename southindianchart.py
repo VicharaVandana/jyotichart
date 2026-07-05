@@ -114,7 +114,7 @@ def write_planetsOnChart_ssc(chartSVG, planets):
 
         #Since all needed properties are computed, Now create the svg entry string for planet
         if(retro == True):
-            Planet_SVGstring = f'''  <text y="{py}" x="{px}" fill="{planetcolour}" text-decoration="underline" class="planet">({symbol})</text>\n'''
+            Planet_SVGstring = f'''  <text y="{py}" x="{px}" fill="{planetcolour}" text-decoration="underline" class="planet">{symbol}</text>\n'''
         else:
             Planet_SVGstring = f'''  <text y="{py}" x="{px}" fill="{planetcolour}" class="planet">{symbol}</text>\n'''
         #write the planet to SVG chart
@@ -139,6 +139,30 @@ def write_planetsAspectsOnChart_ssc(chartSVG, planets):
             chartSVG.write(Planet_SVGstring)
     return
 
+def write_chartdetailsOnChart_ssc(chartSVG, chartObj):
+    chartSVG.write('\n  <!-- ********** Chart Details ********** -->\n')
+    cx = 243.5
+    cy = 135
+    line_height = 18
+    
+    details = []
+    if chartObj.personname:
+        details.append(chartObj.personname)
+    if chartObj.dob:
+        dob_tob = f"Birth : {chartObj.dob}"
+        if chartObj.tob:
+            dob_tob += f" | {chartObj.tob}"
+        details.append(dob_tob)
+    if chartObj.pob:
+        details.append(f"BirthPlace : {chartObj.pob}")
+    if chartObj.chartname:
+        details.append(f"Chart : {chartObj.chartname}")
+        
+    for i, detail in enumerate(details):
+        y_pos = cy + (i * line_height)
+        chartSVG.write(f'''  <text x="{cx}" y="{y_pos}" fill="white" class="chart-details" text-anchor="middle">{detail}</text>\n''')
+    return
+
 def create_chartSVG(chartObj,location,chartSVGfilename):
     # open or create chart file 
     if((location[-1] == '\\') or (location[-1] == '/')):
@@ -158,6 +182,7 @@ def create_chartSVG(chartObj,location,chartSVGfilename):
     chartSVG.write('    .sign-num { font: bold 20px sans-serif; }\n')
     chartSVG.write('    .planet { font: bold 14px sans-serif; }\n')
     chartSVG.write('    .aspect { font: bold 16px sans-serif; }\n')
+    chartSVG.write('    .chart-details { font: bold 14px sans-serif; }\n')
     chartSVG.write('  </style>\n')
     chartSVG.write('  <!-- ********** Chart Diagram ********** -->\n')
 
@@ -167,6 +192,8 @@ def create_chartSVG(chartObj,location,chartSVGfilename):
     write_planetsOnChart_ssc(chartSVG, chartObj.planets)    #Update the planets on chart for every house
     if(chartObj.chartcfg["aspect-visibility"] == True):
         write_planetsAspectsOnChart_ssc(chartSVG, chartObj.planets)
+    
+    write_chartdetailsOnChart_ssc(chartSVG, chartObj)
     
     #SVG chart End section
     chartSVG.write('\n  Sorry, your browser does not support inline SVG.\n')

@@ -229,7 +229,7 @@ def write_planetsOnChart_nsc(chartSVG, planets):
 
         #Since all needed properties are computed, Now create the svg entry string for planet
         if(retro == True):
-            Planet_SVGstring = f'''  <text y="{py}" x="{px}" fill="{planetcolour}" text-decoration="underline" class="planet">({symbol})</text>\n'''
+            Planet_SVGstring = f'''  <text y="{py}" x="{px}" fill="{planetcolour}" text-decoration="underline" class="planet">{symbol}</text>\n'''
         else:
             Planet_SVGstring = f'''  <text y="{py}" x="{px}" fill="{planetcolour}" class="planet">{symbol}</text>\n'''
         #write the planet to SVG chart

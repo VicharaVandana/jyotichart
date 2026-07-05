@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "jyotichart"
-version = "4.0.0"
+version = "5.0.1"
 authors = [
   { name="Shyam Bhat", email="bhatshyam.modernastrologer@gmail.com" },
 ]
@@ -20,3 +20,7 @@ classifiers = [
 [project.urls]
 "Homepage" = "https://github.com/VicharaVandana/jyotichart"
 "Bug Tracker" = "https://github.com/VicharaVandana/jyotichart/issues"
+
+[tool.setuptools]
+packages = ["support"]
+py-modules = ["jyotichart", "northindianchart", "southindianchart", "northindian_transitchart", "southindian_transitchart", "northindian_numericalchart", "southindian_numericalchart"]
