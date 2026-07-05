@@ -60,7 +60,7 @@ north.draw("output_directory/", "north_natal", "svg")
 ```
 
 #### Outputs:
-|<img src="https://raw.githubusercontent.com/VicharaVandana/jyotichart/main/docs/images/north_natal.svg" width="400">|<img src="https://raw.githubusercontent.com/VicharaVandana/jyotichart/main/docs/images/south_natal.svg" width="400">|
+|<img src="https://raw.githubusercontent.com/VicharaVandana/jyotichart/package/docs/images/north_natal.svg" width="400">|<img src="https://raw.githubusercontent.com/VicharaVandana/jyotichart/package/docs/images/south_natal.svg" width="400">|
 |:---:|:---:|
 | **North Indian Natal** | **South Indian Natal** |
 
@@ -103,7 +103,7 @@ s_partial.draw("output_directory/", "south_partial", "svg")
 ```
 
 #### Outputs:
-|<img src="https://raw.githubusercontent.com/VicharaVandana/jyotichart/main/docs/images/north_partial.svg" width="400">|<img src="https://raw.githubusercontent.com/VicharaVandana/jyotichart/main/docs/images/south_partial.svg" width="400">|
+|<img src="https://raw.githubusercontent.com/VicharaVandana/jyotichart/package/docs/images/north_partial.svg" width="400">|<img src="https://raw.githubusercontent.com/VicharaVandana/jyotichart/package/docs/images/south_partial.svg" width="400">|
 |:---:|:---:|
 | **North Indian Partial** | **South Indian Partial** |
 
@@ -156,7 +156,7 @@ n_custom.draw("output_directory/", "north_custom", "svg")
 ```
 
 #### Outputs:
-|<img src="https://raw.githubusercontent.com/VicharaVandana/jyotichart/main/docs/images/north_custom.svg" width="400">|<img src="https://raw.githubusercontent.com/VicharaVandana/jyotichart/main/docs/images/south_custom.svg" width="400">|
+|<img src="https://raw.githubusercontent.com/VicharaVandana/jyotichart/package/docs/images/north_custom.svg" width="400">|<img src="https://raw.githubusercontent.com/VicharaVandana/jyotichart/package/docs/images/south_custom.svg" width="400">|
 |:---:|:---:|
 | **Custom Colored North** | **Custom Colored South** |
 
@@ -180,7 +180,7 @@ my_chart.draw("output_directory/", "hidden_aspects", "svg")
 ```
 
 #### Output:
-<img src="https://raw.githubusercontent.com/VicharaVandana/jyotichart/main/docs/images/hidden_aspects.svg" width="400">
+<img src="https://raw.githubusercontent.com/VicharaVandana/jyotichart/package/docs/images/hidden_aspects.svg" width="400">
 
 ---
 
@@ -226,7 +226,7 @@ n_transit.add_planet(chart.KETU, "Ke", 12)
 n_transit.updatechartcfg(aspect=False)
 n_transit.draw("output_directory/", "north_transit", "svg")
 ```
-<img src="https://raw.githubusercontent.com/VicharaVandana/jyotichart/main/docs/images/north_transit.svg" width="600">
+<img src="https://raw.githubusercontent.com/VicharaVandana/jyotichart/package/docs/images/north_transit.svg" width="600">
 
 ---
 
@@ -269,7 +269,7 @@ s_transit.add_planet(chart.KETU, "Ke", 12)
 s_transit.updatechartcfg(aspect=False)
 s_transit.draw("output_directory/", "south_transit", "svg")
 ```
-<img src="https://raw.githubusercontent.com/VicharaVandana/jyotichart/main/docs/images/south_transit.svg" width="600">
+<img src="https://raw.githubusercontent.com/VicharaVandana/jyotichart/package/docs/images/south_transit.svg" width="600">
 
 ---
 
@@ -316,7 +316,7 @@ s_num.draw("output_directory/", "south_numerical", "svg")
 ```
 
 #### Outputs:
-|<img src="https://raw.githubusercontent.com/VicharaVandana/jyotichart/main/docs/images/north_numerical.svg" width="400">|<img src="https://raw.githubusercontent.com/VicharaVandana/jyotichart/main/docs/images/south_numerical.svg" width="400">|
+|<img src="https://raw.githubusercontent.com/VicharaVandana/jyotichart/package/docs/images/north_numerical.svg" width="400">|<img src="https://raw.githubusercontent.com/VicharaVandana/jyotichart/package/docs/images/south_numerical.svg" width="400">|
 |:---:|:---:|
 | **North Indian Numerical** | **South Indian Numerical** |
 
