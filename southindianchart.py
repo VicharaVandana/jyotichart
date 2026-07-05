@@ -1,4 +1,5 @@
 import support.constants as c
+import support.languages as lang_module
 
 
 SouthChart_offsets4mAries = {  "aries"  :   { "x": 0, "y": 0},
@@ -92,12 +93,12 @@ def draw_classicSouthChartSkeleton(chartSVG, chartCfg):
     chartSVG.write(f'''  <rect id ="pisces" width="120" height="80" x="3" y="10" style="fill:{chartCfg["house-colour"]["pisces"]};stroke:{chartCfg["line-colour"]};stroke-width:2" />\n''')
     return
 
-def write_signnumOnChart_ssc(chartSVG, signclr, ascendantsign):
+def write_signnumOnChart_ssc(chartSVG, signclr, ascendantsign, language="english"):
     chartSVG.write('\n  <!-- ********** Ascendant Sign ********** -->\n')
     pxAsc = SouthChart_AscendantPositionAries["x"] + SouthChart_offsets4mAries[ascendantsign.lower()]["x"]
     pyAsc = SouthChart_AscendantPositionAries["y"] + SouthChart_offsets4mAries[ascendantsign.lower()]["y"]
-    
-    chartSVG.write(f'''  <text id ="{ascendantsign}Asc" x="{pxAsc}" y="{pyAsc}" fill="{signclr}" class="sign-num">Asc</text>\n''')
+    asc_label = lang_module.get_ui_label("asc", language)
+    chartSVG.write(f'''  <text id ="{ascendantsign}Asc" x="{pxAsc}" y="{pyAsc}" fill="{signclr}" class="sign-num">{asc_label}</text>\n''')
     return
 
 def write_planetsOnChart_ssc(chartSVG, planets):
@@ -139,31 +140,35 @@ def write_planetsAspectsOnChart_ssc(chartSVG, planets):
             chartSVG.write(Planet_SVGstring)
     return
 
-def write_chartdetailsOnChart_ssc(chartSVG, chartObj):
+def write_chartdetailsOnChart_ssc(chartSVG, chartObj, language="english"):
     chartSVG.write('\n  <!-- ********** Chart Details ********** -->\n')
     cx = 243.5
     cy = 135
     line_height = 18
     
+    lbl_birth      = lang_module.get_ui_label("birth", language)
+    lbl_birthplace = lang_module.get_ui_label("birthplace", language)
+    lbl_chart      = lang_module.get_ui_label("chart", language)
+
     details = []
     if chartObj.personname:
         details.append(chartObj.personname)
     if chartObj.dob:
-        dob_tob = f"Birth : {chartObj.dob}"
+        dob_tob = f"{lbl_birth} : {chartObj.dob}"
         if chartObj.tob:
             dob_tob += f" | {chartObj.tob}"
         details.append(dob_tob)
     if chartObj.pob:
-        details.append(f"BirthPlace : {chartObj.pob}")
+        details.append(f"{lbl_birthplace} : {chartObj.pob}")
     if chartObj.chartname:
-        details.append(f"Chart : {chartObj.chartname}")
+        details.append(f"{lbl_chart} : {chartObj.chartname}")
         
     for i, detail in enumerate(details):
         y_pos = cy + (i * line_height)
         chartSVG.write(f'''  <text x="{cx}" y="{y_pos}" fill="white" class="chart-details" text-anchor="middle">{detail}</text>\n''')
     return
 
-def create_chartSVG(chartObj,location,chartSVGfilename):
+def create_chartSVG(chartObj,location,chartSVGfilename, language="english"):
     # open or create chart file 
     if((location[-1] == '\\') or (location[-1] == '/')):
         chartSVGFullname = f'{location}{chartSVGfilename}.svg'
@@ -188,12 +193,12 @@ def create_chartSVG(chartObj,location,chartSVGfilename):
 
     #create chart South indian style
     draw_classicSouthChartSkeleton(chartSVG, chartObj.chartcfg)    #Create skeleton
-    write_signnumOnChart_ssc(chartSVG, chartObj.chartcfg["sign-colour"],chartObj.ascendantsign)    #Update the sign numbers on chart skeleton
+    write_signnumOnChart_ssc(chartSVG, chartObj.chartcfg["sign-colour"],chartObj.ascendantsign, language)    #Update the sign numbers on chart skeleton
     write_planetsOnChart_ssc(chartSVG, chartObj.planets)    #Update the planets on chart for every house
     if(chartObj.chartcfg["aspect-visibility"] == True):
         write_planetsAspectsOnChart_ssc(chartSVG, chartObj.planets)
     
-    write_chartdetailsOnChart_ssc(chartSVG, chartObj)
+    write_chartdetailsOnChart_ssc(chartSVG, chartObj, language)
     
     #SVG chart End section
     chartSVG.write('\n  Sorry, your browser does not support inline SVG.\n')

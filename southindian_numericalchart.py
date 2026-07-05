@@ -65,13 +65,13 @@ def write_numericalValuesOnChart_ssc(chartSVG, signvalues):
     return
 
 
-def write_ascOnChart_ssc(chartSVG, signclr, ascendantsign):
+def write_ascOnChart_ssc(chartSVG, signclr, ascendantsign, language="english"):
     ''' Re-uses the south chart skeleton's Asc marker. '''
-    sc.write_signnumOnChart_ssc(chartSVG, signclr, ascendantsign)
+    sc.write_signnumOnChart_ssc(chartSVG, signclr, ascendantsign, language)
     return
 
 
-def create_numericalchartSVG(chartObj, location, chartSVGfilename):
+def create_numericalchartSVG(chartObj, location, chartSVGfilename, language="english"):
     ''' Creates an SVG of a South Indian numerical chart.
         Draws the skeleton + Asc marker + one large number per sign box. '''
     # Build the full file path
@@ -101,7 +101,7 @@ def create_numericalchartSVG(chartObj, location, chartSVGfilename):
 
     # Draw skeleton, Asc marker, and numerical values
     sc.draw_classicSouthChartSkeleton(chartSVG, chartObj.chartcfg)
-    write_ascOnChart_ssc(chartSVG, chartObj.chartcfg["sign-colour"], chartObj.ascendantsign)
+    write_ascOnChart_ssc(chartSVG, chartObj.chartcfg["sign-colour"], chartObj.ascendantsign, language)
     write_numericalValuesOnChart_ssc(chartSVG, chartObj.signvalues)
 
     # SVG close

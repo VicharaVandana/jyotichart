@@ -1,4 +1,5 @@
 import support.constants as c
+import support.languages as lang_module
 
 p_rel = [
     (32, 30),  # P1
@@ -125,7 +126,7 @@ def draw_classicSouthTransitChartSkeleton(chartSVG, chartCfg):
     
     return
 
-def write_signnumOnChart_stsc(chartSVG, signclr, ascendantsign):
+def write_signnumOnChart_stsc(chartSVG, signclr, ascendantsign, language="english"):
     chartSVG.write('\n  <!-- ********** Ascendant Sign ********** -->\n')
     # Ascendant is in the natal chart, shift by 120, 80
     pxAsc = SouthChart_AscendantPositionAries["x"] + 120
@@ -137,8 +138,8 @@ def write_signnumOnChart_stsc(chartSVG, signclr, ascendantsign):
     # Aries base is 243, 90. So offset is bx - 243, by - 90
     pxAsc = pxAsc + (bx - 243)
     pyAsc = pyAsc + (by - 90)
-
-    chartSVG.write(f'''  <text id ="{ascendantsign}Asc" x="{pxAsc}" y="{pyAsc}" fill="{signclr}" class="sign-num">Asc</text>\n''')
+    asc_label = lang_module.get_ui_label("asc", language)
+    chartSVG.write(f'''  <text id ="{ascendantsign}Asc" x="{pxAsc}" y="{pyAsc}" fill="{signclr}" class="sign-num">{asc_label}</text>\n''')
     return
 
 def write_natalplanetsOnChart_stsc(chartSVG, planets):
@@ -209,40 +210,48 @@ def write_transitplanetsAspectsOnChart_stsc(chartSVG, planets):
             chartSVG.write(Planet_SVGstring)
     return
 
-def write_chartdetailsOnChart_stsc(chartSVG, chartObj, parentChartObj):
+def write_chartdetailsOnChart_stsc(chartSVG, chartObj, parentChartObj, language="english"):
     chartSVG.write('\n  <!-- ********** Chart Details ********** -->\n')
     cx = 363.5
     cy = 200
     line_height = 16
-    
+
+    lbl_birth        = lang_module.get_ui_label("birth", language)
+    lbl_birthplace   = lang_module.get_ui_label("birthplace", language)
+    lbl_inner        = lang_module.get_ui_label("inner", language)
+    lbl_outer        = lang_module.get_ui_label("outer", language)
+    lbl_transit      = lang_module.get_ui_label("transit", language)
+    lbl_outerbirth   = lang_module.get_ui_label("outerbirth", language)
+    lbl_outerbirthpl = lang_module.get_ui_label("outerbirthplace", language)
+
     details = []
     if chartObj.personname:
         details.append(chartObj.personname)
         
     if hasattr(parentChartObj, 'dob') and parentChartObj.dob:
-        dob_tob = f"Birth : {parentChartObj.dob}"
+        dob_tob = f"{lbl_birth} : {parentChartObj.dob}"
         if hasattr(parentChartObj, 'tob') and parentChartObj.tob:
             dob_tob += f" | {parentChartObj.tob}"
         details.append(dob_tob)
         
     if hasattr(parentChartObj, 'pob') and parentChartObj.pob:
-        details.append(f"BirthPlace : {parentChartObj.pob}")
+        details.append(f"{lbl_birthplace} : {parentChartObj.pob}")
         
     if parentChartObj.chartname:
-        details.append(f"Inner : {parentChartObj.chartname}")
+        details.append(f"{lbl_inner} : {parentChartObj.chartname}")
         
     if chartObj.chartname:
-        details.append(f"Outer : {chartObj.chartname}")
+        details.append(f"{lbl_outer} : {chartObj.chartname}")
         
     if hasattr(chartObj, 'outer_dob') and chartObj.outer_dob:
-        outer_dob_tob = f"Outer Birth : {chartObj.outer_dob}"
+        outer_dob_tob = f"{lbl_outerbirth} : {chartObj.outer_dob}"
         if hasattr(chartObj, 'outer_tob') and chartObj.outer_tob:
             outer_dob_tob += f" | {chartObj.outer_tob}"
         details.append(outer_dob_tob)
         if hasattr(chartObj, 'outer_pob') and chartObj.outer_pob:
-            details.append(f"Outer BirthPlace : {chartObj.outer_pob}")
+            details.append(f"{lbl_outerbirthpl} : {chartObj.outer_pob}")
     elif chartObj.transit_date:
-        transit_dt = f"transit : {chartObj.transit_date}"
+        transit_dt = f"{lbl_transit} : {chartObj.transit_date}"
         if chartObj.transit_time:
             transit_dt += f" | {chartObj.transit_time}"
         details.append(transit_dt)
@@ -252,7 +261,7 @@ def write_chartdetailsOnChart_stsc(chartSVG, chartObj, parentChartObj):
         chartSVG.write(f'''  <text x="{cx}" y="{y_pos}" fill="white" class="chart-details" text-anchor="middle">{detail}</text>\n''')
     return
 
-def create_transitchartSVG(chartObj,location,chartSVGfilename, parentChartObj):
+def create_transitchartSVG(chartObj,location,chartSVGfilename, parentChartObj, language="english"):
     if((location[-1] == '\\') or (location[-1] == '/')):
         chartSVGFullname = f'{location}{chartSVGfilename}.svg'
     elif('/' in location):
@@ -274,7 +283,7 @@ def create_transitchartSVG(chartObj,location,chartSVGfilename, parentChartObj):
     chartSVG.write('  </style>\n')
     
     draw_classicSouthTransitChartSkeleton(chartSVG, chartObj.chartcfg)
-    write_signnumOnChart_stsc(chartSVG, chartObj.chartcfg["sign-colour"], chartObj.ascendantsign)
+    write_signnumOnChart_stsc(chartSVG, chartObj.chartcfg["sign-colour"], chartObj.ascendantsign, language)
     
     write_natalplanetsOnChart_stsc(chartSVG, parentChartObj.planets)
     if(parentChartObj.chartcfg["aspect-visibility"] == True):
@@ -284,7 +293,7 @@ def create_transitchartSVG(chartObj,location,chartSVGfilename, parentChartObj):
     if(chartObj.chartcfg["aspect-visibility"] == True):
         write_transitplanetsAspectsOnChart_stsc(chartSVG, chartObj.planets)
 
-    write_chartdetailsOnChart_stsc(chartSVG, chartObj, parentChartObj)
+    write_chartdetailsOnChart_stsc(chartSVG, chartObj, parentChartObj, language)
     
     chartSVG.write('\n  Sorry, your browser does not support inline SVG.\n')
     chartSVG.write('</svg>\n')

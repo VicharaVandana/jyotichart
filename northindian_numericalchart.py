@@ -49,7 +49,7 @@ def write_numericalValuesOnChart_nsc(chartSVG, housevalues):
     return
 
 
-def create_numericalchartSVG(chartObj, location, chartSVGfilename):
+def create_numericalchartSVG(chartObj, location, chartSVGfilename, language="english"):
     ''' Creates an SVG of a North Indian numerical chart.
         Draws the skeleton + sign numbers + one large number per house. '''
     # Build the full file path

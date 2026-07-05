@@ -5,6 +5,7 @@ import northindian_numericalchart as nnc
 import southindian_numericalchart as snc
 import southindian_transitchart as stc
 import support.general as gen
+import support.languages as lang_module
 import os
 
 ####################################################################
@@ -32,12 +33,50 @@ planet_aspects = {
     "Ketu":[5,7,9]
 }
 
+# Supported language options
+SUPPORTED_LANGUAGES = lang_module.SUPPORTED_LANGUAGES
+
+
+############################################################################
+# Public language helper functions
+############################################################################
+
+def get_planet_symbol(planet, language="english"):
+    '''Return the planet abbreviation in the given language.
+
+    Parameters:
+        planet   (str): Planet constant e.g. chart.SUN, chart.MOON, "Mars" etc.
+        language (str): Language code - "english" (default), "kannada", or "hindi".
+
+    Returns:
+        str: Planet abbreviation in the requested language.
+             e.g. get_planet_symbol("Sun", "kannada") returns "ಸೂ"
+             e.g. get_planet_symbol("Moon", "hindi")  returns "चं"
+    '''
+    return lang_module.get_planet_symbol(planet, language)
+
+
+def get_sign_name(sign, language="english"):
+    '''Return the zodiac sign name in the given language.
+
+    Parameters:
+        sign     (str): English sign name e.g. "Aries", "Taurus", "Scorpio" etc.
+        language (str): Language code - "english" (default), "kannada", or "hindi".
+
+    Returns:
+        str: Sign name in the requested language.
+             e.g. get_sign_name("Aries", "kannada") returns "ಮೇಷ"
+             e.g. get_sign_name("Leo",   "hindi")   returns "सिंह"
+    '''
+    return lang_module.get_sign_name(sign, language)
+
 
 ################################### NORTH CHART ###################################
 class NorthChart:
-    def __init__(self, chartname, personname, IsFullChart = True):
+    def __init__(self, chartname, personname, IsFullChart = True, language = "english"):
         self.chartname = chartname
         self.personname = personname
+        self.language = language.lower() if language else "english"
         self.chartcfg = nc.reset_chartcfg()
         self.ascendantsign = "NotSet"
         self.fullchart = IsFullChart
@@ -211,9 +250,10 @@ class NorthChart:
     
 ################################### NORTH TRANSIT CHART ###################################
 class NorthTransitChart:
-    def __init__(self, chartname, personname, parentNorthChart, IsFullChart = True):
+    def __init__(self, chartname, personname, parentNorthChart, IsFullChart = True, language = "english"):
         self.chartname = chartname
         self.personname = personname
+        self.language = language.lower() if language else "english"
         self.chartcfg = nc.reset_chartcfg()
         self.ascendantsign = "NotSet"
         self.fullchart = IsFullChart
@@ -389,9 +429,10 @@ class NorthTransitChart:
 
 ################################### SOUTH CHART ###################################
 class SouthChart:
-    def __init__(self, chartname, personname, IsFullChart = True):
+    def __init__(self, chartname, personname, IsFullChart = True, language = "english"):
         self.chartname = chartname
         self.personname = personname
+        self.language = language.lower() if language else "english"
         self.chartcfg = sc.reset_chartcfg()
         self.ascendantsign = "NotSet"
         self.fullchart = IsFullChart
@@ -579,16 +620,17 @@ class SouthChart:
         if(self.__isObjectDrawReady() == False):
             return(f'''The chart is not ready to be drawn yet as all the needed inputs are not provided!!!''')
 
-        svgstatus = sc.create_chartSVG(self,location,filename)
+        svgstatus = sc.create_chartSVG(self,location,filename, self.language)
 
         return(svgstatus)
 
 
 ################################### SOUTH TRANSIT CHART ###################################
 class SouthTransitChart:
-    def __init__(self, chartname, personname, parentSouthChart, IsFullChart = True):
+    def __init__(self, chartname, personname, parentSouthChart, IsFullChart = True, language = "english"):
         self.chartname = chartname
         self.personname = personname
+        self.language = language.lower() if language else "english"
         self.chartcfg = stc.reset_chartcfg()
         self.ascendantsign = "NotSet"
         self.fullchart = IsFullChart
@@ -773,7 +815,7 @@ class SouthTransitChart:
         if(self.__isObjectDrawReady() == False):
             return(f'''The chart is not ready to be drawn yet as all the needed inputs are not provided!!!''')
 
-        svgstatus = stc.create_transitchartSVG(self,location,filename,self.parentSouthChart)
+        svgstatus = stc.create_transitchartSVG(self,location,filename,self.parentSouthChart, self.language)
 
         return(svgstatus)
 
@@ -785,9 +827,10 @@ class NorthNumericalChart:
     Useful for BhavaBala, BhavaBala Rank, AshtakaVarga points, etc.
     The ascendant sign is required so that sign numbers are shown in each house.
     '''
-    def __init__(self, chartname, personname):
+    def __init__(self, chartname, personname, language = "english"):
         self.chartname = chartname
         self.personname = personname
+        self.language = language.lower() if language else "english"
         self.chartcfg = nc.reset_chartcfg()
         self.ascendantsign = "NotSet"
         # housevalues: list of 12 dicts, one per house (house1 at index 0)
@@ -881,9 +924,10 @@ class SouthNumericalChart:
         "Saggitarius", "Capricorn", "Aquarius", "Pisces"
     ]
 
-    def __init__(self, chartname, personname):
+    def __init__(self, chartname, personname, language = "english"):
         self.chartname = chartname
         self.personname = personname
+        self.language = language.lower() if language else "english"
         self.chartcfg = snc.reset_chartcfg()
         self.ascendantsign = "NotSet"
         # signvalues: dict keyed by lowercase sign name
@@ -981,7 +1025,7 @@ class SouthNumericalChart:
         if(self.__isObjectDrawReady() == False):
             return(f'''The chart is not ready to be drawn yet as all the needed inputs are not provided!!!''')
 
-        return snc.create_numericalchartSVG(self, location, filename)
+        return snc.create_numericalchartSVG(self, location, filename, self.language)
 
 
 if __name__ == '__main__':
